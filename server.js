@@ -17,6 +17,16 @@ function writeFile (fileName, data){
 	});
 }
 
+function addNewUser(userName, password){
+	var newUser = {
+    				userName: userName,
+    				pass: password
+    		}
+  users.users.push(newUser);
+  var serialized = JSON.stringify(users);
+  writeFile('users.json', serialized);	
+}
+
 
 fs.stat(__dirname + '/items.json', (err, stats) => {
 		if (err){
@@ -30,16 +40,17 @@ fs.stat(__dirname + '/items.json', (err, stats) => {
 	    	
     	var serialized = JSON.stringify(newItems);
     	writeFile('items.json', serialized);  
-    	items = newItems;
+    	items = newItems;	
+			  console.log('items:',items);	
 		} else {
 			fs.readFile(__dirname + '/items.json', 'utf8', (err, data) => {
 			  if (err) {
 			    return console.log("error reading: ", err);
 			  }
-			  items = JSON.parse(data);			  
+			  items = JSON.parse(data);	
+			  console.log('items:',items);		  
 			});
 		}
-		console.log("loaded: ",items);
 	}
 );
 
@@ -58,16 +69,17 @@ fs.stat(__dirname + '/transactions.json', (err, stats) => {
 	    	
     	var serialized = JSON.stringify(newTransactions);
     	writeFile('transactions.json', serialized);  
-    	transactions = newTransactions;
+    	transactions = newTransactions;	
+			  console.log('transactions:',transactions);		
 		} else {
 			fs.readFile(__dirname + '/transactions.json', 'utf8', (err, data) => {
 			  if (err) {
 			    return console.log("error reading: ", err);
 			  }
-			  transactions = JSON.parse(data);			  
+			  transactions = JSON.parse(data);	
+			  console.log('transactions:',transactions);				  
 			});
 		}
-		console.log("loaded: ",transactions);
 	}
 );
 
@@ -84,21 +96,29 @@ fs.stat(__dirname + '/users.json', (err, stats) => {
     	var serialized = JSON.stringify(newUsers);
     	writeFile('users.json', serialized);  
     	users = newUsers;
+    	console.log('users:',users);
 		} else {
 			fs.readFile(__dirname + '/users.json', 'utf8', (err, data) => {
 			  if (err) {
 			    return console.log("error reading: ", err);
 			  }
-			  users = JSON.parse(data);			  
+			  users = JSON.parse(data);		
+			  console.log('users:',users);	  
 			});
 		}
-		console.log("loaded: ",users);
 	}
 );
 
 app.get('/newUser', function(req, res) {
-	
-	console.log(req);
+	var userName = req.query.userName;
+	var password = req.query.password;
+	for (i = 0; i < users.users.length; i++) {
+		if(users.users[i].userName == userName){
+				users.users.splice(i, 1);
+				break;
+			} // code to be executed
+	}
+	addNewUser(userName, password);
   res.send('hello world');
 });
 
