@@ -2,11 +2,9 @@
   "name": "abl",
   "version": "1.0.0",
   "description": "",
-  "main": "quickstart.js",
+  "main": "server.js",
   "dependencies": {
-    "express": "^4.14.0",
-    "google-auth-library": "^0.9.8",
-    "googleapis": "^13.0.0"
+    "express": "^4.14.0"
   },
   "devDependencies": {},
   "scripts": {
