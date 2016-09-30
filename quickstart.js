@@ -7,7 +7,8 @@ server = express();
 
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/sheets.googleapis.com-nodejs-quickstart.json
-var SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+//var SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
+var SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
     process.env.USERPROFILE) + '/.credentials/';
 var TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-quickstart.json';
@@ -20,7 +21,8 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   }
   // Authorize a client with the loaded credentials, then call the
   // Google Sheets API.
-  authorize(JSON.parse(content), listMajors);
+  //authorize(JSON.parse(content), listMajors);
+  authorize(JSON.parse(content), testput);
 });
 
 /**
@@ -97,6 +99,31 @@ function storeToken(token) {
   console.log('Token stored to ' + TOKEN_PATH);
 }
 
+function testput(auth){
+	var values = [["123456789"]];
+	var body = {
+  'values': values
+}
+	var sheets = google.sheets('v4');
+  sheets.spreadsheets.values.update({
+    auth: auth,
+    spreadsheetId: '1rAZuAYSqtKfPggAa9MeyuH_sBkNwzizBjIRbWHe0iPQ', //mine
+    //spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms', 
+    //range: 'Class Data!A2:E',
+    range: 'Sheet1!A1', //mine
+    valueInputOption: 'RAW',
+    fields: "updatedCells",
+    resource: body
+  }, function(err, response) {
+    if (err) {
+      console.log('The API returned an error: ' + err);
+      return;
+    } else {
+    		console.log(response.updatedCells);
+    	}
+  })
+}
+
 /**
  * Print the names and majors of students in a sample spreadsheet:
  * https://docs.google.com/spreadsheets/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/edit
@@ -105,8 +132,10 @@ function listMajors(auth) {
   var sheets = google.sheets('v4');
   sheets.spreadsheets.values.get({
     auth: auth,
-    spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms',
+    //spreadsheetId: '1rAZuAYSqtKfPggAa9MeyuH_sBkNwzizBjIRbWHe0iPQ', //mine
+    spreadsheetId: '1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms', 
     range: 'Class Data!A2:E',
+    //range: 'Sheet1!B2:S', //mine
   }, function(err, response) {
     if (err) {
       console.log('The API returned an error: ' + err);
