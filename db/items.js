@@ -18,6 +18,10 @@ fs.stat(__dirname + itemsPath, (err, stats) => {
     				category: "nicknames",
     				description: "+1 awesomeness",
     				amount: 500
+    		},{
+    				category: "traits",
+    				description: "+5 awesomeness",
+    				amount: 5000
     		}];
 	    	
     	var serialized = JSON.stringify(newItems);

@@ -66,11 +66,6 @@ app.get('/',
     	items: db.items.getItems(),
     	categories: db.items.getCategories() });
   });
-  
-app.get('/index',
-  function(req, res) {
-    res.render('index', { user: req.user });
-  });
 
 app.get('/login',
   function(req, res){
@@ -93,15 +88,6 @@ app.get('/profile',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
     res.render('profile', { user: req.user });
-  });
-  
-app.get('/items',
-  require('connect-ensure-login').ensureLoggedIn(),
-  function(req, res){
-    res.render('items', { 
-    	user: req.user, 
-    	items: db.items.getItems() 
-    });
   });
   
 app.get('/newUser', function(req, res) {

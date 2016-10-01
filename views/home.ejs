@@ -109,9 +109,33 @@
 			<div id="container">
 				
 				<div class="tabbed">
-					
+					<% for(var i=0; i<categories.length; i++) {%>
+						<div class="tab-content">
+							<div class="items">
+								<div class="cl">&nbsp;</div>
+								<ul>
+								<% for(var j=0; j<items.length; j++) {%>
+									<% if (items[j].category == categories[i]) { %>
+										<li>
+								    	<div class="image">
+								    		<a href="#"><img src="css/images/image1.jpg" alt="" /></a>
+								    	</div>
+								    	<p>
+								    		Item Number: <span>125515</span><br />
+								    		Size List : <span>8/8.5/9.5/10/11</span><br />
+								    		Brand Name: <a href="#">Adidas Shoes</a>
+								    	</p>
+								    	<p class="price">Wholesale Price: <strong>53 USD</strong></p>
+								    </li>
+									<% } %>
+								<% } %>
+								</ul>
+								<div class="cl">&nbsp;</div>
+							</div>
+						</div>
+					<% } %>
 					<!-- First Tab Content -->
-					<div class="tab-content" style="display:block;">
+					<!--<div class="tab-content" style="display:block;">
 						<div class="items">
 							<div class="cl">&nbsp;</div>
 							<ul>
@@ -206,11 +230,11 @@
 							</ul>
 							<div class="cl">&nbsp;</div>
 						</div>
-					</div>
+					</div>-->
 					<!-- End First Tab Content -->
 					
 					<!-- Second Tab Content -->
-					<div class="tab-content">
+					<!--<div class="tab-content">
 						<div class="items">
 							<div class="cl">&nbsp;</div>
 							<ul>
@@ -305,11 +329,11 @@
 							</ul>
 							<div class="cl">&nbsp;</div>
 						</div>
-					</div>
+					</div>-->
 					<!-- End Second Tab Content -->
 					
 					<!-- Third Tab Content -->
-					<div class="tab-content">
+					<!--<div class="tab-content">
 						<div class="items">
 							<div class="cl">&nbsp;</div>
 							<ul>
@@ -493,7 +517,7 @@
 						    </ul>
 							<div class="cl">&nbsp;</div>
 						</div>
-					</div>
+					</div>-->
 					<!-- End Third Tab Content -->
 					
 				</div>
