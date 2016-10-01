@@ -92,7 +92,6 @@ app.get('/profile',
   });
   
 app.get('/newUser', function(req, res) {
-//userName, password, displayName, email
 	var userName = req.query.username;
 	var password = req.query.password;
 	var displayName = req.query.displayName;
