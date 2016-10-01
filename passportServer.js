@@ -21,7 +21,6 @@ passport.use(new Strategy(
     });
   }));
 
-
 // Configure Passport authenticated session persistence.
 //
 // In order to restore authentication state across HTTP requests, Passport needs
@@ -39,9 +38,6 @@ passport.deserializeUser(function(id, cb) {
     cb(null, user);
   });
 });
-
-
-
 
 // Create a new Express application.
 var app = express();
@@ -89,6 +85,15 @@ app.get('/profile',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
     res.render('profile', { user: req.user });
+  });
+  
+app.get('/items',
+  require('connect-ensure-login').ensureLoggedIn(),
+  function(req, res){
+    res.render('items', { 
+    	user: req.user, 
+    	items: db.items.getItems() 
+    });
   });
   
 app.get('/newUser', function(req, res) {
