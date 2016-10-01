@@ -26,11 +26,14 @@ $( document ).ready( function(){
 	$('.buyNow').click(function(event) {
 		event.stopPropagation();
 		var desc = $(this).attr('description');
+		var balance = $(this).attr('balance');
 		var amount = $(this).attr('amount');
 		$('#buyNowButton').attr('description',desc);
 		$('#buyNowButton').attr('amount',amount);
 		$('#purchase').text(desc);
 		$('#purchaseAmount').text(amount);
+		
+		$('#remaining').text(balance-amount);
 		console.log(desc,amount);
 	  $('#purchase-form').modal();
 	  return false;

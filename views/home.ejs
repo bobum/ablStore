@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<title>Free CSS template by ChocoTemplates.com</title>
+	<title>ABL BarryBuck Store</title>
 	<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="css/jquery.modal.min.css" type="text/css" media="screen" />
 	<!--[if lte IE 6]>
@@ -128,7 +128,7 @@
 								    	</p>
 								    	<% if (user && items[j].amount <= user.balance) { %>
 									    	<p class="price">Buy Now: <strong>
-									    		<a href="#" class="buyNow" description="<%= items[j].description %>" amount="<%= items[j].amount %>">
+									    		<a href="#" class="buyNow" description="<%= items[j].description %>" amount="<%= items[j].amount %>" balance="<%= user.balance %>">
 									    			<%= items[j].amount %> $BB</a>
 									    		</strong>
 									    	</p>
@@ -192,10 +192,14 @@
 <!-- End Main -->
 	<div id="purchase-form" class="">
 		You are about to purchase the following:
-		<ul>
-			<li id="purchase" style="font-weight:bold"></li>
+		<ul style="font-weight:bold;padding:10px;">
+			<li id="purchase" ></li>
 			<li>For $<span id="purchaseAmount"></span></li>
 		</ul>
+		You will have <span id="remaining" style="font-weight:bold;"></span>BB left once you click the BUY NOW button.<br />
+		If you don't want to complete this transaction, just close this window.<br />
+		<p style="padding:10px;"> Do you want to proceed?</p>
+		
 		<button id="buyNowButton">BUY NOW!</button>
 	</div>
 </body>
