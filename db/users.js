@@ -7,8 +7,8 @@ fs.stat(__dirname + userPath, (err, stats) => {
 		if (err){
 	    	console.log("error reading: users.json");
 				var newUsers = [
-				    { id: 1, username: 'jack', password: 'secret', displayName: 'Jack', emails: [ { value: 'jack@example.com' } ] }
-				  , { id: 2, username: 'jill', password: 'birthday', displayName: 'Jill', emails: [ { value: 'jill@example.com' } ] }
+				    { id: 1, username: 'jack', password: 'secret', displayName: 'Jack', emails: [ { value: 'jack@example.com' } ], balance: 0 }
+				  , { id: 2, username: 'jill', password: 'birthday', displayName: 'Jill', emails: [ { value: 'jill@example.com' } ], balance: 0 }
 				];
 	    	
     	var serialized = JSON.stringify(newUsers);
@@ -66,7 +66,8 @@ exports.addNewUser = function (userName, password, displayName, email){
 		username: userName,
 		password: password,
 		displayName: displayName,
-		emails: [{value: email}]
+		emails: [{value: email}],
+		balance: 0
 	}
   records.push(newUser);
   var serialized = JSON.stringify(records);

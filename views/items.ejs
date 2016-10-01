@@ -1,0 +1,11 @@
+Items!!!
+	<div>
+	<label>Username:<%= user.username %></label>
+	</div>
+	<div>
+<ul>
+<% for(var i=0; i<items.length; i++) {%>
+   <li><%= items[i].description %></li>
+<% } %>
+</ul>
+

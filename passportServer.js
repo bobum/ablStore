@@ -63,6 +63,11 @@ app.get('/',
   function(req, res) {
     res.render('home', { user: req.user });
   });
+  
+app.get('/index',
+  function(req, res) {
+    res.render('index', { user: req.user });
+  });
 
 app.get('/login',
   function(req, res){
@@ -105,4 +110,5 @@ app.get('/newUser', function(req, res) {
   res.send('hello world');
 });
 
+app.use(express.static('public'));
 app.listen(3000);
