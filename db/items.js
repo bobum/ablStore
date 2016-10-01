@@ -10,6 +10,14 @@ fs.stat(__dirname + itemsPath, (err, stats) => {
     				category: "traits",
     				description: "+1 awesomeness",
     				amount: 500
+    		},{
+    				category: "referrals",
+    				description: "+1 awesomeness",
+    				amount: 500
+    		},{
+    				category: "nicknames",
+    				description: "+1 awesomeness",
+    				amount: 500
     		}];
 	    	
     	var serialized = JSON.stringify(newItems);
@@ -30,4 +38,16 @@ fs.stat(__dirname + itemsPath, (err, stats) => {
 
 exports.getItems = function(){
 	return items;
+}
+
+exports.getCategories = function(){
+	var unique = {};
+	var distinct = [];
+	for( var i in items ){
+	 if( typeof(unique[items[i].category]) == "undefined"){
+	  distinct.push(items[i].category);
+	 }
+	 unique[items[i].category] = 0;
+	}
+	return distinct;
 }
