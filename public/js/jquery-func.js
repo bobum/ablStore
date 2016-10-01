@@ -28,24 +28,53 @@ $( document ).ready( function(){
 		var desc = $(this).attr('description');
 		var balance = $(this).attr('balance');
 		var amount = $(this).attr('amount');
+		var username = $(this).attr('username');
+		
+		//transfer attributes from anchor to button
 		$('#buyNowButton').attr('description',desc);
 		$('#buyNowButton').attr('amount',amount);
-		$('#purchase').text(desc);
-		$('#purchaseAmount').text(amount);
+		$('#buyNowButton').attr('username', username);
+		$('#buyNowButton').attr('balance', balance);
 		
+		$('#purchase').text(desc);
+		$('#purchaseAmount').text(amount);		
 		$('#remaining').text(balance-amount);
+		
 		console.log(desc,amount);
+		
 	  $('#purchase-form').modal();
 	  return false;
 	});
 	
 	$('#buyNowButton').click(function(event){
 		var desc = $(this).attr('description');
+		var balance = $(this).attr('balance');
 		var amount = $(this).attr('amount');
+		var username = $(this).attr('username');
+		
+		var url = 'transaction?username='+username+'&description='+desc+'+1&amount='+amount;
+		$.modal.close();
+		$.get( url, function( data ) {
+		  if(data.data == 'success') {
+		  	alert('Success!');
+		  	$('#userBalance').text(balance-amount);
+		  }else{
+		  	if(data.data == 'fail') {
+		  		alert('Dang!  Something went wrong...');
+		  	}	else {
+		  		alert('You can\'t afford this!');
+		  	}
+		  }		  
+		}).fail(function() {
+    	alert('Dang!  Something got fouled up...');
+  	});
+		
+		
 		console.log(desc,amount);
 	});
 
 });
+
 function _init_carousel(carousel) {
 	$('#slider-nav .next').bind('click', function() {
 		carousel.next();
