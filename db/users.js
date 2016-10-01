@@ -7,7 +7,7 @@ fs.stat(__dirname + userPath, (err, stats) => {
 		if (err){
 	    	console.log("error reading: users.json");
 				var newUsers = [
-				    { id: 1, username: 'jack', password: 'secret', displayName: 'Jack', emails: [ { value: 'jack@example.com' } ], balance: 0 }
+				    { id: 1, username: 'jack', password: 'secret', displayName: 'Jack', emails: [ { value: 'jack@example.com' } ], balance: 750 }
 				  , { id: 2, username: 'jill', password: 'birthday', displayName: 'Jill', emails: [ { value: 'jill@example.com' } ], balance: 0 }
 				];
 	    	

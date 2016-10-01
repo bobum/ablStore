@@ -126,10 +126,13 @@
 								    		Other Info : <span><%= items[j].description %></span><br />
 								    		MORE Info : <span><%= items[j].description %></span>
 								    	</p>
-								    	<p class="price">Buy Now: <strong>
-								    		<a href="#" class="buyNow" description="<%= items[j].description %>" amount="<%= items[j].amount %>">
-								    			<%= items[j].amount %> $BB</a>
-								    		</strong></p>
+								    	<% if (user && items[j].amount <= user.balance) { %>
+									    	<p class="price">Buy Now: <strong>
+									    		<a href="#" class="buyNow" description="<%= items[j].description %>" amount="<%= items[j].amount %>">
+									    			<%= items[j].amount %> $BB</a>
+									    		</strong>
+									    	</p>
+								    	<% } %>
 								    </li>
 									<% } %>
 								<% } %>
@@ -190,9 +193,9 @@
 	<div id="purchase-form" class="">
 		You are about to purchase the following:
 		<ul>
-			<li id="purchase"></li>
+			<li id="purchase" style="font-weight:bold"></li>
+			<li>For $<span id="purchaseAmount"></span></li>
 		</ul>
-		For $<span id="purchaseAmount"></span>
 		<button id="buyNowButton">BUY NOW!</button>
 	</div>
 </body>
