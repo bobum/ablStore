@@ -37,7 +37,7 @@
 						<% if (!user) { %>
 						<li class="last"><a href="/login">Log In</a></li>
 						<% } else { %>
-						<li class="last"><a href="/profile"><%= user.username %></a></li>
+						<li class="last"><a href="/profile"><%= user.username %>: $<%= user.balance %></a></li>
 						<% } %>
 				</ul>
 			</div>
@@ -127,11 +127,13 @@
 								    		MORE Info : <span><%= items[j].description %></span>
 								    	</p>
 								    	<% if (user && items[j].amount <= user.balance) { %>
-									    	<p class="price">Buy Now: <strong>
+									    	<p class="price">Buy It Now: <strong>
 									    		<a href="#" class="buyNow" description="<%= items[j].description %>" amount="<%= items[j].amount %>" balance="<%= user.balance %>">
 									    			<%= items[j].amount %> $BB</a>
 									    		</strong>
 									    	</p>
+									    <% } else { %>
+									    	<p class="price">Price: <strong style="opacity:0.5;"><%= items[j].amount %> $BB</strong></p>
 								    	<% } %>
 								    </li>
 									<% } %>

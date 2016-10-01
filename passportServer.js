@@ -90,6 +90,14 @@ app.get('/profile',
     res.render('profile', { user: req.user });
   });
   
+app.get('/transaction',
+  require('connect-ensure-login').ensureLoggedIn(),
+  function(req, res){
+    //add item to transaction list
+    //update user balance
+    //return success
+  });
+  
 app.get('/newUser', function(req, res) {
 	var userName = req.query.username;
 	var password = req.query.password;
