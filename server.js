@@ -1,21 +1,10 @@
 var fs = require('fs');
+var helpers = require('./helpers.js');
 var express = require('express');
 var app = express();
 var users;
 var items;
 var transactions;
-
-function writeFile (fileName, data){
-	console.log('writing');
-	fs.writeFile(__dirname + '/' + fileName, data, (err) => {	
-		  
-		  if (err){
-		  	console.log("error writing:", err);
-	    	return console.log("file name:", fileName);
-	  	}
-		  console.log('saved:',fileName);
-	});
-}
 
 function addNewUser(userName, password){
 	var newUser = {
@@ -24,7 +13,7 @@ function addNewUser(userName, password){
     		}
   users.users.push(newUser);
   var serialized = JSON.stringify(users);
-  writeFile('users.json', serialized);	
+  helpers.writeFile('users.json', serialized);	
 }
 
 
@@ -40,7 +29,7 @@ fs.stat(__dirname + '/items.json', (err, stats) => {
     	};
 	    	
     	var serialized = JSON.stringify(newItems);
-    	writeFile('items.json', serialized);  
+    	helpers.writeFile('items.json', serialized);  
     	items = newItems;	
 			  console.log('items:',items);	
 		} else {
@@ -69,7 +58,7 @@ fs.stat(__dirname + '/transactions.json', (err, stats) => {
     	};
 	    	
     	var serialized = JSON.stringify(newTransactions);
-    	writeFile('transactions.json', serialized);  
+    	helpers.writeFile('transactions.json', serialized);  
     	transactions = newTransactions;	
 			  console.log('transactions:',transactions);		
 		} else {
@@ -95,7 +84,7 @@ fs.stat(__dirname + '/users.json', (err, stats) => {
     	};
 	    	
     	var serialized = JSON.stringify(newUsers);
-    	writeFile('users.json', serialized);  
+    	helpers.writeFile('users.json', serialized);  
     	users = newUsers;
     	console.log('users:',users);
 		} else {
