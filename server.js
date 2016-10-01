@@ -33,6 +33,7 @@ fs.stat(__dirname + '/items.json', (err, stats) => {
 	    	console.log("error reading: items.json");
 				var newItems = {
     		items: [{
+    				category: "traits",
     				description: "+1 awesomeness",
     				amount: 500
     		}]
