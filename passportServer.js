@@ -93,10 +93,28 @@ app.get('/profile',
 app.get('/transaction',
   require('connect-ensure-login').ensureLoggedIn(),
   function(req, res){
-    //add item to transaction list
-    //update user balance
-    //return success
-  });
+  	var username = req.query.username;
+  	var description = req.query.description;
+		var amount = req.query.amount;
+			
+  	db.users.findByUsername(username, function(err, user) {
+      if (err || !user) { 
+      	res.send({data:"fail"});
+      	return; 
+      }
+			
+			if(user.balance - amount >= 0){
+				db.transactions.addNewTransaction(username, description, amount);
+				db.users.updateUserBalance(username, user.balance - amount);
+				res.send({data:"success"});
+				return;
+			}else{
+				res.send({data:"can't afford"});
+      	return; 	
+			}
+    });    
+  }
+);
   
 app.get('/newUser', function(req, res) {
 	var userName = req.query.username;

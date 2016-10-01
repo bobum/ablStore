@@ -33,3 +33,18 @@ fs.stat(__dirname + transactionPath, (err, stats) => {
 exports.getTransactions = function(){
 	return transactions;
 }
+
+exports.addNewTransaction = function (userName, description, amount){
+	var now = Date.now();	
+	
+	var newTransaction = {
+			userName: userName,
+			purchase: description,
+			dateTime: now,
+			amount: amount
+	};
+	
+  transactions.push(newTransaction);
+  var serialized = JSON.stringify(transactions);
+  helpers.writeFile('transactions.json', serialized);	
+}

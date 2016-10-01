@@ -50,11 +50,21 @@ exports.findByUsername = function(username, cb) {
   });
 }
 
-exports.addNewUser = function (userName, password, displayName, email){
+exports.updateUserBalance = function(userName, newBalance){	
+	for (i = 0; i < records.length; i++) {		
+		if(records[i].username == userName){
+			records[i].balance = newBalance;
+			var serialized = JSON.stringify(records);
+			helpers.writeFile('users.json', serialized);	
+			break;
+		}
+	}
+}
 
+exports.addNewUser = function (userName, password, displayName, email){
 	var newId = records.length + 1;
 	for (i = 0; i < records.length; i++) {
-		if(records[i].userName == userName){
+		if(records[i].username == userName){
 				records.splice(i, 1);
 				newId = i;
 				break;
