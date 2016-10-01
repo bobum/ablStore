@@ -1,8 +1,9 @@
 var fs = require('fs');
 var helpers = require('../helpers.js');
 var records;
+var userPath = '/../users.json';
 
-fs.stat(__dirname + '/users.json', (err, stats) => {
+fs.stat(__dirname + userPath, (err, stats) => {
 		if (err){
 	    	console.log("error reading: users.json");
 				var newUsers = [
@@ -15,7 +16,7 @@ fs.stat(__dirname + '/users.json', (err, stats) => {
     	records = newUsers;
     	console.log('users:',records);
 		} else {
-			fs.readFile(__dirname + '/users.json', 'utf8', (err, data) => {
+			fs.readFile(__dirname + userPath, 'utf8', (err, data) => {
 			  if (err) {
 			    return console.log("error reading: ", err);
 			  }
@@ -47,4 +48,27 @@ exports.findByUsername = function(username, cb) {
     }
     return cb(null, null);
   });
+}
+
+exports.addNewUser = function (userName, password, displayName, email){
+
+	var newId = records.length + 1;
+	for (i = 0; i < records.length; i++) {
+		if(records[i].userName == userName){
+				records.splice(i, 1);
+				newId = i;
+				break;
+			}
+	}
+	
+	var newUser = {
+		id: newId,
+		username: userName,
+		password: password,
+		displayName: displayName,
+		emails: [{value: email}]
+	}
+  records.push(newUser);
+  var serialized = JSON.stringify(records);
+  helpers.writeFile('users.json', serialized);	
 }

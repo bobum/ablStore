@@ -2,6 +2,7 @@ var express = require('express');
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
 var db = require('./db');
+var helpers = require('./helpers.js');
 
 
 // Configure the local strategy for use by Passport.
@@ -89,5 +90,15 @@ app.get('/profile',
   function(req, res){
     res.render('profile', { user: req.user });
   });
+  
+app.get('/newUser', function(req, res) {
+//userName, password, displayName, email
+	var userName = req.query.username;
+	var password = req.query.password;
+	var displayName = req.query.displayName;
+	var email = req.query.email;
+	db.users.addNewUser(userName, password, displayName, email)
+  res.send('hello world');
+});
 
 app.listen(3000);
