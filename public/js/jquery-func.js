@@ -22,6 +22,13 @@ $( document ).ready( function(){
 	$('.tabs a').slide({
 		'slide_selector' : '.tab-content'
 	})
+	
+	$('.buyNow').click(function(event) {
+		event.stopPropagation();
+	  $('#purchase-form').modal();
+	  return false;
+	});
+
 });
 function _init_carousel(carousel) {
 	$('#slider-nav .next').bind('click', function() {
