@@ -25,8 +25,21 @@ $( document ).ready( function(){
 	
 	$('.buyNow').click(function(event) {
 		event.stopPropagation();
+		var desc = $(this).attr('description');
+		var amount = $(this).attr('amount');
+		$('#buyNowButton').attr('description',desc);
+		$('#buyNowButton').attr('amount',amount);
+		$('#purchase').text(desc);
+		$('#purchaseAmount').text(amount);
+		console.log(desc,amount);
 	  $('#purchase-form').modal();
 	  return false;
+	});
+	
+	$('#buyNowButton').click(function(event){
+		var desc = $(this).attr('description');
+		var amount = $(this).attr('amount');
+		console.log(desc,amount);
 	});
 
 });
