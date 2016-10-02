@@ -210,15 +210,17 @@
 	</div>
 	<div id="loginForm" class="modal">
 		<form action="/login" method="post">
-			<div>
-				<label>Username:</label>
-				<input type="text" name="username"/><br/>
+			<div style="float:left;">
+				<div style="padding: 10px;">
+					<label>Username:</label>
+					<input type="text" name="username"/><br/>
+				</div>
+				<div style="padding: 10px;">
+					<label>Password:</label>
+					<input type="password" name="password"/>
+				</div>
 			</div>
-			<div>
-				<label>Password:</label>
-				<input type="password" name="password"/>
-			</div>
-			<div>
+			<div style="padding-top: 50px;">
 				<input type="submit" value="LOGIN"/>
 			</div>
 		</form>
