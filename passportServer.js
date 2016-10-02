@@ -126,4 +126,4 @@ app.get('/newUser', function(req, res) {
 });
 
 app.use(express.static('public'));
-app.listen();
+app..listen(process.env.PORT || 3000);
