@@ -111,3 +111,7 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 .tab-content { display:none;}
 
 .tabbed { min-height:420px;}
+
+body > .modal {
+      display: none;
+    }
