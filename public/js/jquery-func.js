@@ -72,6 +72,10 @@ $( document ).ready( function(){
 		
 		console.log(desc,amount);
 	});
+	
+	$('#loginLink').click(function(event){
+			$('#loginForm').modal();
+	});
 
 });
 
