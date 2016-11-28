@@ -15,19 +15,19 @@
    },
    {
       "category":"Personnel",
-      "description":"+1 awesomeness"
+      "description":"+1 awesomeness",
       "amount":500
    },
    {
       "category":"Personnel",
-      "description":"+1 awesomeness"
+      "description":"+1 awesomeness",
       "more": "This is even MORE info!",
       "amount":500
    },
    {
       "category":"Miscellaneous",
       "description":"+1 awesomeness",
-      "other": "This is Other Info!"
+      "other": "This is Other Info!",
       "amount":500
    }
 ]
