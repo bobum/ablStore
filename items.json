@@ -1,1 +1,33 @@
-[{"category":"traits","description":"+1 awesomeness","amount":500},{"category":"referrals","description":"+1 awesomeness","amount":500},{"category":"nicknames","description":"+1 awesomeness","amount":500},{"category":"traits","description":"+5 awesomeness","amount":5000}]
+[
+   {
+      "category":"Players",
+      "description":"+1 Leadership",
+      "other": "This is Other Info!",
+      "more": "This is even MORE info!",
+      "amount":2500
+   },
+   {
+      "category":"Players",
+      "description":"+1 Popularity",
+      "other": "Make a Pop Star!",
+      "more": "This gets applied to LOCAL first till maxed, then NATIONAL",
+      "amount":2500
+   },
+   {
+      "category":"Personnel",
+      "description":"+1 awesomeness"
+      "amount":500
+   },
+   {
+      "category":"Personnel",
+      "description":"+1 awesomeness"
+      "more": "This is even MORE info!",
+      "amount":500
+   },
+   {
+      "category":"Miscellaneous",
+      "description":"+1 awesomeness",
+      "other": "This is Other Info!"
+      "amount":500
+   }
+]

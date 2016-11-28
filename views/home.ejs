@@ -123,8 +123,12 @@
 								    	</div>
 								    	<p>
 								    		Description: <span><%= items[j].description %></span><br />
-								    		Other Info : <span><%= items[j].description %></span><br />
-								    		MORE Info : <span><%= items[j].description %></span>
+								    		<% if (items[j].other) { %>
+								    		Other Info : <span><%= items[j].other %></span><br />
+								    		<% } %>
+								    		<% if (items[j].more) { %>
+								    		MORE Info : <span><%= items[j].more %></span>
+								    		<% } %>
 								    	</p>
 								    	<% if (user && items[j].amount <= user.balance) { %>
 									    	<p class="price">Buy It Now: <strong>
