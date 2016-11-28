@@ -9,7 +9,7 @@
       "category":"Players",
       "description":"+1 Popularity",
       "other": "Make a Pop Star!",
-      "more": "This gets applied to LOCAL first till maxed, then NATIONAL",
+      "more": "Applied to LOCAL first till maxed, then NATIONAL",
       "amount":2500
    },
    {
