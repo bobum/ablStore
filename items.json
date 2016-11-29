@@ -51,13 +51,13 @@
    {
       "category":"Personnel",
       "description":"+1 Teach Pitching",
-      "more": "Give em the old pepper boy bring the ol pepper!",
+      "other": "Give em the old pepper boy bring the ol pepper!",
       "amount":500
    },
    {
       "category":"Personnel",
       "description":"The Gift of God",
-      "more": "A magical recovery pill that brings players back from the dead...well any career ending injury at least...",
+      "other": "A magical recovery pill that brings players back from the dead...well any career ending injury at least...",
       "amount":25000
    },
    {
