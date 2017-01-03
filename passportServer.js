@@ -13,8 +13,9 @@ var SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
 
 
 var TOKEN_DIR = process.env.OPENSHIFT_DATA_DIR + '/.credentials/';
-var TOKEN_PATH = TOKEN_DIR + '/sheets.googleapis.com-nodejs-quickstart.json';
+var TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-quickstart.json';
 console.log(TOKEN_PATH);
+
 
 // Configure the local strategy for use by Passport.
 //
@@ -146,3 +147,9 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
 module.exports = app ;
+
+console.log(process.env.PORT);
+console.log(process.env.OPENSHIFT_NODEJS_PORT);
+console.log(process.env.IP);
+console.log(process.env.OPENSHIFT_NODEJS_IP);
+console.log(process.env);
