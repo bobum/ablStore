@@ -185,17 +185,7 @@ function authorize(credentials, callback) {
  *     client.
  */
 function getNewToken(oauth2Client, callback) {
-	oauth2Client.getToken('4/Z1qTpjzAklRnDNjWPWNPEiVs5sPQ7o14Ab7d1sI4Rfk', function(err, token) {
-      if (err) {
-        console.log('Error while trying to retrieve access token', err);
-        return;
-      }
-      oauth2Client.credentials = token;
-      console.log(token);
-      storeToken(token);
-      callback(oauth2Client);
-    });
-  /*var authUrl = oauth2Client.generateAuthUrl({
+  var authUrl = oauth2Client.generateAuthUrl({
     access_type: 'offline',
     scope: SCOPES
   });
@@ -206,7 +196,7 @@ function getNewToken(oauth2Client, callback) {
   });
   rl.question('Enter the code from that page here: ', function(code) {
     rl.close();
-    oauth2Client.getToken('4/Z1qTpjzAklRnDNjWPWNPEiVs5sPQ7o14Ab7d1sI4Rfk', function(err, token) {
+    oauth2Client.getToken(code, function(err, token) {
       if (err) {
         console.log('Error while trying to retrieve access token', err);
         return;
@@ -215,7 +205,7 @@ function getNewToken(oauth2Client, callback) {
       storeToken(token);
       callback(oauth2Client);
     });
-  });*/
+  });
 }
 
 /**
