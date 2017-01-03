@@ -128,6 +128,8 @@ app.get('/transaction',
     });    
   }
 );
+
+
   
 app.get('/newUser', function(req, res) {
 	var userName = req.query.username;
@@ -140,6 +142,20 @@ app.get('/newUser', function(req, res) {
 
 ///////////////////////////////////sheets
 // Load client secrets from a local file.
+app.get('/oauthcallback', function(req,res) {
+	var code = req.query.code;
+	console.log(req.query);
+	/*oauth2Client.getToken(code, function(err, token) {
+      if (err) {
+        console.log('FRACK! Error while trying to retrieve access token', err);
+        return;
+      }
+      oauth2Client.credentials = token;
+      storeToken(token);
+      callback(oauth2Client);
+    });*/
+	});
+	
 fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   if (err) {
     console.log('Error loading client secret file: ' + err);
@@ -190,7 +206,7 @@ function getNewToken(oauth2Client, callback) {
     scope: SCOPES
   });
   console.log('Authorize this app by visiting this url: ', authUrl);
-  var rl = readline.createInterface({
+  /*var rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
   });
@@ -205,7 +221,7 @@ function getNewToken(oauth2Client, callback) {
       storeToken(token);
       callback(oauth2Client);
     });
-  });
+  });*/
 }
 
 /**
