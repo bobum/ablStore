@@ -1,9 +1,20 @@
 var express = require('express');
 var passport = require('passport');
 var Strategy = require('passport-local').Strategy;
+
+var readline = require('readline');
+var google = require('googleapis');
+var googleAuth = require('google-auth-library');
+
 var db = require('./db');
 var helpers = require('./helpers.js');
 
+var SCOPES = ['https://www.googleapis.com/auth/spreadsheets'];
+
+
+var TOKEN_DIR = process.env.OPENSHIFT_DATA_DIR + '/.credentials/';
+var TOKEN_PATH = TOKEN_DIR + '/sheets.googleapis.com-nodejs-quickstart.json';
+console.log(TOKEN_PATH);
 
 // Configure the local strategy for use by Passport.
 //

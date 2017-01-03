@@ -22,7 +22,7 @@ fs.readFile('client_secret.json', function processClientSecrets(err, content) {
   }
   // Authorize a client with the loaded credentials, then call the
   // Google Sheets API.
-  //authorize(JSON.parse(content), listMajors);
+  authorize(JSON.parse(content), listMajors);
   authorize(JSON.parse(content), testput);
 });
 
@@ -101,7 +101,36 @@ function storeToken(token) {
 }
 
 function testput(auth){
-	var values = [["foofoofoo"]];
+	var values = [ [ 'Alexandra', 'Female', '4. Senior', 'CA', 'English' ],
+     [ 'Andrew', 'Male', '1. Freshman', 'SD', 'Math' ],
+     [ 'Anna', 'Female', '1. Freshman', 'NC', 'English' ],
+     [ 'Becky', 'Female', '2. Sophomore', 'SD', 'Art' ],
+     [ 'Benjamin', 'Male', '4. Senior', 'WI', 'English' ],
+     [ 'Carl', 'Male', '3. Junior', 'MD', 'Art' ],
+     [ 'Carrie', 'Female', '3. Junior', 'NE', 'English' ],
+     [ 'Dorothy', 'Female', '4. Senior', 'MD', 'Math' ],
+     [ 'Dylan', 'Male', '1. Freshman', 'MA', 'Math' ],
+     [ 'Edward', 'Male', '3. Junior', 'FL', 'English' ],
+     [ 'Ellen', 'Female', '1. Freshman', 'WI', 'Physics' ],
+     [ 'Fiona', 'Female', '1. Freshman', 'MA', 'Art' ],
+     [ 'John', 'Male', '3. Junior', 'CA', 'Physics' ],
+     [ 'Jonathan', 'Male', '2. Sophomore', 'SC', 'Math' ],
+     [ 'Joseph', 'Male', '1. Freshman', 'AK', 'English' ],
+     [ 'Josephine', 'Female', '1. Freshman', 'NY', 'Math' ],
+     [ 'Karen', 'Female', '2. Sophomore', 'NH', 'English' ],
+     [ 'Kevin', 'Male', '2. Sophomore', 'NE', 'Physics' ],
+     [ 'Lisa', 'Female', '3. Junior', 'SC', 'Art' ],
+     [ 'Mary', 'Female', '2. Sophomore', 'AK', 'Physics' ],
+     [ 'Maureen', 'Female', '1. Freshman', 'CA', 'Physics' ],
+     [ 'Nick', 'Male', '4. Senior', 'NY', 'Art' ],
+     [ 'Olivia', 'Female', '4. Senior', 'NC', 'Physics' ],
+     [ 'Pamela', 'Female', '3. Junior', 'RI', 'Math' ],
+     [ 'Patrick', 'Male', '1. Freshman', 'NY', 'Art' ],
+     [ 'Robert', 'Male', '1. Freshman', 'CA', 'English' ],
+     [ 'Sean', 'Male', '1. Freshman', 'NH', 'Physics' ],
+     [ 'Stacy', 'Female', '1. Freshman', 'NY', 'Math' ],
+     [ 'Thomas', 'Male', '2. Sophomore', 'RI', 'Art' ],
+     [ 'Will', 'Male', '4. Senior', 'FL', 'Math' ] ];
 	var body = {
   'values': values
 }
@@ -142,6 +171,7 @@ function listMajors(auth) {
       console.log('The API returned an error: ' + err);
       return;
     }
+    console.log(response);
     var rows = response.values;
     if (rows.length == 0) {
       console.log('No data found.');
