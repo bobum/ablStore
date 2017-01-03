@@ -1,7 +1,7 @@
 var fs = require('fs');
 var helpers = require('../helpers.js');
 var records;
-var userPath = '/../users.json';
+var userPath = '/../data/users.json';
 
 fs.stat(__dirname + userPath, (err, stats) => {
 		if (err){

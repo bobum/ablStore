@@ -1,7 +1,7 @@
 var fs = require('fs');
 var helpers = require('../helpers.js');
 var items;
-var itemsPath = '/../items.json';
+var itemsPath = '/../data/items.json';
 
 fs.stat(__dirname + itemsPath, (err, stats) => {
 		if (err){

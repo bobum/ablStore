@@ -1,7 +1,7 @@
 var fs = require('fs');
 var helpers = require('../helpers.js');
 var transactions;
-var transactionPath = '/../transactions.json';
+var transactionPath = '/../data/transactions.json';
 
 fs.stat(__dirname + transactionPath, (err, stats) => {
 		if (err){
