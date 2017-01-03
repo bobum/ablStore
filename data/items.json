@@ -1,0 +1,81 @@
+[
+   {
+      "category":"Players",
+      "description":"+1 Leadership",
+      "other": "Give your team direction with a leaderrship mod!",
+      "amount":2500
+   },
+   {
+      "category":"Players",
+      "description":"+1 Popularity",
+      "other": "Make a Pop Star!",
+      "more": "Applied to LOCAL first till maxed, then NATIONAL",
+      "amount":2500
+   },
+   {
+      "category":"Players",
+      "description":"+1 Loyalty",
+      "other": "He'll stay till the bitter end with a loyalty boost!",
+      "amount":500
+   },
+   {
+      "category":"Players",
+      "description":"+1 Desire Winner",
+      "other": "Nobody likes to lose!",
+      "amount":500
+   },
+   {
+      "category":"Players",
+      "description":"-1 Greed",
+      "other": "Money...meh...who needs it...",
+      "amount":2500
+   },
+   {
+      "category":"Players",
+      "description":"+1 Intelligence",
+      "other": "E=MC^2 - bring on the big brain!",
+      "amount":2500
+   },
+   {
+      "category":"Players",
+      "description":"+1 Work Ethic",
+      "other": "No substitiute for hard work!",
+      "amount":2500
+   },
+   {
+      "category":"Personnel",
+      "description":"+1 Teach Hitting",
+      "other": "Swing batter batter SWING!",
+      "amount":500
+   },
+   {
+      "category":"Personnel",
+      "description":"+1 Teach Pitching",
+      "other": "Give em the old pepper boy bring the ol pepper!",
+      "amount":500
+   },
+   {
+      "category":"Personnel",
+      "description":"The Gift of God",
+      "other": "A magical recovery pill that brings players back from the dead...well any career ending injury at least...",
+      "amount":25000
+   },
+   {
+      "category":"Miscellaneous",
+      "description":"+ $1,000,000 cash",
+      "other": "SHOW ME THE MONEY!!!!",
+      "amount":2000
+   },
+   {
+      "category":"Miscellaneous",
+      "description":"Nickname Change",
+      "other": "I will call him squishy and he will be mine.",
+      "amount":2000
+   },
+   {
+      "category":"Miscellaneous",
+      "description":"Player Name Change",
+      "other": "The player formerly known as...",
+      "amount":2000
+   }
+]

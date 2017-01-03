@@ -101,7 +101,7 @@ function storeToken(token) {
 }
 
 function testput(auth){
-	var values = [["123456789"]];
+	var values = [["foofoofoo"]];
 	var body = {
   'values': values
 }
